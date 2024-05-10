@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b19b7591-10fd-49a3-ba3a-3c3a14a1215a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/project_program_for_students.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
@@ -63,6 +64,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -78,7 +80,7 @@
       <workItem from="1714909267815" duration="2306000" />
       <workItem from="1715171878312" duration="1152000" />
       <workItem from="1715174073618" duration="1255000" />
-      <workItem from="1715355205235" duration="2155000" />
+      <workItem from="1715355205235" duration="2598000" />
     </task>
     <servers />
   </component>
