@@ -29,7 +29,7 @@ modalTrigger.onclick = () => {
  }
 const handleScroll =() => {
     const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight
-    if (scrolledToBottom && ModalShown) {
+    if (scrolledToBottom && !ModalShown) {
         openModal()
         window.removeEventListener('scroll', handleScroll)
     }
@@ -38,7 +38,7 @@ const handleScroll =() => {
 window.addEventListener('scroll', handleScroll)
 
 setTimeout(() =>{
-    if (ModalShown) {
+    if (!ModalShown) {
         openModal()
         window.removeEventListener('scroll', handleScroll)
     }
