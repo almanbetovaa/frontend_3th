@@ -62,3 +62,44 @@ tabParent.onclick = (event)=> {
         })
     }
 }
+
+//converter
+
+const usd = document.querySelector('#usd')
+const som = document.querySelector('#som')
+const eur= document.querySelector('#eur')
+
+const converter = (element, targetElement, targetElement2) => {
+    element.oninput = ()=> {
+        const request = new XMLHttpRequest()
+        request.open('GET', '../data/converter.json')
+        request.setRequestHeader('Content-type', 'application/json')
+        request.send()
+
+        request.onload = ()=> {
+            const data = JSON.parse(request.response)
+            if (element.id==='som'){
+                targetElement.value = (element.value/data.usd).toFixed(2)
+                targetElement2.value = (element.value/data.eur).toFixed(2)
+            }
+            if (element.id==='usd'){
+                targetElement.value = (element.value*data.usd).toFixed(2)
+                targetElement2.value = (element.value * (data.usd / data.eur)).toFixed(2)
+            }
+            if (element.id === 'eur'){
+                targetElement.value = (element.value * data.eur).toFixed(2)
+                targetElement2.value = (element.value * (data.eur / data.usd)).toFixed(2)
+            }
+            element.value === '' && (targetElement.value = targetElement2.value = '')
+        }
+    }
+}
+converter(som, usd, eur)
+converter(usd, som, eur)
+converter(eur, som, usd)
+
+
+
+//DRY - do not repeat yourself
+//KISS - keep it simple stupid
+
