@@ -103,3 +103,51 @@ converter(eur, som, usd)
 //DRY - do not repeat yourself
 //KISS - keep it simple stupid
 
+
+//card switcher
+
+const card = document.querySelector('.card')
+const next = document.querySelector('#btn-next')
+const prev = document.querySelector('#btn-prev')
+let cardId = 1
+const loadCardData = async(id) =>{
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        if (!response.ok) {
+            throw new Error('Failed to load card data')
+        }
+        const data = await response.json()
+        card.innerHTML = `
+            <p>${data.title}</p>
+            <p style="color: ${data.completed ?'green' : 'red'}">${data.completed}</p>
+            <span>${data.id}</span>
+        `
+    } catch (error) {
+        console.error(error)
+    }
+}
+const setCardId = (id) => id < 1? 200 : id > 200 ? 1 :id
+
+window.onload = async ()=>{
+    await loadCardData(cardId)
+}
+next.onclick = async () => {
+    cardId = setCardId(++cardId);
+    await loadCardData(cardId);
+}
+prev.onclick = async () => {
+    cardId = setCardId(--cardId)
+    await loadCardData(cardId)
+}
+//query params
+// const cityName = document.querySelector('.city')
+// const tempName = document.querySelector('.temp')
+//
+// const citySearch = () => {
+//     citySearchInput.oninput = () => {
+//
+//     }
+// }
+
+//optional chaining - ?.
+

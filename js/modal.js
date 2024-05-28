@@ -43,3 +43,23 @@ setTimeout(() =>{
         window.removeEventListener('scroll', handleScroll)
     }
 }, 10000)
+
+
+// bot
+const form =  document.querySelector('form')
+const token = '6964657692:AAHWdhVUOKJuHze6RAdqK1qolrm0LGFSe68'
+const chatID = '@Aliya_lesson7'
+const URL = `https://api.telegram.org/bot${token}/sendMessage`
+
+form.onsubmit = async (event)=> {
+    event.preventDefault()
+    const result = event.target
+    const data = Object.fromEntries(new FormData(result).entries())
+    const {name, phone} = data
+    const text = `Имя: ${name}\nНомер: ${phone}`
+    await fetch(URL, {
+        method:'POST',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({chat_id : chatID, text})
+    })
+}
