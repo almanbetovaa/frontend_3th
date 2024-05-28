@@ -1,11 +1,10 @@
 window.onload = async() =>{
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-        if (!response.ok) throw new Error('Failed to fetch card data')
         const data = await response.json()
         renderCards(data)
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 const renderCards =(data) => {
