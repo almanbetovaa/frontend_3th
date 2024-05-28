@@ -1,5 +1,5 @@
 const cardContainer= document.getElementById('cardContainer')
-const Cards = async () => {
+const cards = async () => {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts')
         const data = await response.json()
@@ -17,4 +17,4 @@ const Cards = async () => {
         console.log(error)
     }
 }
-window.onload = Cards;
+window.onload = cards()
