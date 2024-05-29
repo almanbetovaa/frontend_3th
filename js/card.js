@@ -17,4 +17,4 @@ const cards = async () => {
         console.log(error)
     }
 }
-window.onload = cards()
+cards()
